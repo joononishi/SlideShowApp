@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		AB2D1AE32A8F9ADF00BBB350 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2D1AE22A8F9ADF00BBB350 /* AppDelegate.swift */; };
 		AB2D1AE52A8F9ADF00BBB350 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2D1AE42A8F9ADF00BBB350 /* SceneDelegate.swift */; };
-		AB2D1AE72A8F9ADF00BBB350 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2D1AE62A8F9ADF00BBB350 /* ViewController.swift */; };
+		AB2D1AE72A8F9ADF00BBB350 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2D1AE62A8F9ADF00BBB350 /* FirstViewController.swift */; };
 		AB2D1AEA2A8F9ADF00BBB350 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB2D1AE82A8F9ADF00BBB350 /* Main.storyboard */; };
 		AB2D1AEC2A8F9ADF00BBB350 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB2D1AEB2A8F9ADF00BBB350 /* Assets.xcassets */; };
 		AB2D1AEF2A8F9ADF00BBB350 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB2D1AED2A8F9ADF00BBB350 /* LaunchScreen.storyboard */; };
+		AB2D1AF72A8F9BC700BBB350 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2D1AF62A8F9BC700BBB350 /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AB2D1ADF2A8F9ADF00BBB350 /* SlideShowApp2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlideShowApp2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB2D1AE22A8F9ADF00BBB350 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB2D1AE42A8F9ADF00BBB350 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AB2D1AE62A8F9ADF00BBB350 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AB2D1AE62A8F9ADF00BBB350 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		AB2D1AE92A8F9ADF00BBB350 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AB2D1AEB2A8F9ADF00BBB350 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB2D1AEE2A8F9ADF00BBB350 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB2D1AF02A8F9ADF00BBB350 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB2D1AF62A8F9BC700BBB350 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +60,8 @@
 			children = (
 				AB2D1AE22A8F9ADF00BBB350 /* AppDelegate.swift */,
 				AB2D1AE42A8F9ADF00BBB350 /* SceneDelegate.swift */,
-				AB2D1AE62A8F9ADF00BBB350 /* ViewController.swift */,
+				AB2D1AE62A8F9ADF00BBB350 /* FirstViewController.swift */,
+				AB2D1AF62A8F9BC700BBB350 /* SecondViewController.swift */,
 				AB2D1AE82A8F9ADF00BBB350 /* Main.storyboard */,
 				AB2D1AEB2A8F9ADF00BBB350 /* Assets.xcassets */,
 				AB2D1AED2A8F9ADF00BBB350 /* LaunchScreen.storyboard */,
@@ -138,7 +141,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB2D1AE72A8F9ADF00BBB350 /* ViewController.swift in Sources */,
+				AB2D1AF72A8F9BC700BBB350 /* SecondViewController.swift in Sources */,
+				AB2D1AE72A8F9ADF00BBB350 /* FirstViewController.swift in Sources */,
 				AB2D1AE32A8F9ADF00BBB350 /* AppDelegate.swift in Sources */,
 				AB2D1AE52A8F9ADF00BBB350 /* SceneDelegate.swift in Sources */,
 			);
