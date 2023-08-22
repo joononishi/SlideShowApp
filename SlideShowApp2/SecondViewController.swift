@@ -1,4 +1,5 @@
 import UIKit
+
 class SecondViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
@@ -6,12 +7,13 @@ class SecondViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let imageName = imageName {
-            imageView.image = UIImage(named: imageName)
+        if let imageName = imageName, let image = UIImage(named: imageName) {
+            imageView.image = image
         }
     }
 
-    @IBAction func backButtonTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
+

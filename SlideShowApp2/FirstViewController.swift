@@ -14,51 +14,59 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateImage()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        imageView.addGestureRecognizer(tapGesture)
+        imageView.isUserInteractionEnabled = true
     }
-    @objc func nextImage(_ sender: Any) {
+
+    @IBAction func nextButtonTapped(_ sender: UIButton) {
         currentImageIndex = (currentImageIndex + 1) % images.count
         updateImage()
     }
 
-
-    @IBAction func nextButton(_ sender: Any) {
-        currentImageIndex = (currentImageIndex + 1) % images.count
-        updateImage()
-    }
-
-    @IBAction func prevButton(_ sender: Any) {
+    @IBAction func prevButtonTapped(_ sender: UIButton) {
         currentImageIndex = (currentImageIndex - 1 + images.count) % images.count
         updateImage()
     }
 
-    @IBAction func playPauseButton(_ sender: UIButton) {
+    @IBAction func playPauseButtonTapped(_ sender: UIButton) {
         if timer == nil {
-            timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(nextImage(_:)), userInfo: nil, repeats: true)
-            playPauseButton.setTitle("停止", for: .normal)
             nextButton.isEnabled = false
             prevButton.isEnabled = false
+            playPauseButton.setTitle("停止", for: .normal)
+            timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(autoSlideShow), userInfo: nil, repeats: true)
         } else {
-            timer?.invalidate()
-            timer = nil
-            playPauseButton.setTitle("再生", for: .normal)
-            nextButton.isEnabled = true
-            prevButton.isEnabled = true
+            stopSlideShow()
         }
+    }
+
+    @objc func autoSlideShow() {
+        currentImageIndex = (currentImageIndex + 1) % images.count
+        updateImage()
+    }
+
+    func stopSlideShow() {
+        timer?.invalidate()
+        timer = nil
+        nextButton.isEnabled = true
+        prevButton.isEnabled = true
+        playPauseButton.setTitle("再生", for: .normal)
     }
 
     func updateImage() {
-        let imageName = images[currentImageIndex]
-        imageView.image = UIImage(named: imageName)
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let secondVC = segue.destination as? SecondViewController, segue.identifier == "ToSecondViewController" {
-            secondVC.imageName = images[currentImageIndex]
+        if let image = UIImage(named: images[currentImageIndex]) {
+            imageView.image = image
         }
     }
 
-    @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
-        performSegue(withIdentifier: "ToSecondViewController", sender: self)
+    @objc func imageTapped() {
+        performSegue(withIdentifier: "toSecondViewController", sender: nil)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let secondVC = segue.destination as? SecondViewController {
+            secondVC.imageName = images[currentImageIndex]
+        }
     }
 }
 

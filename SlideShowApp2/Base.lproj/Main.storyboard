@@ -34,7 +34,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="next"/>
                                 <connections>
-                                    <action selector="nextButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LMD-oe-jHQ"/>
+                                    <action selector="nextButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EZ8-0Y-lLS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svq-iP-lcR" userLabel="prevButton">
@@ -42,7 +42,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="prev"/>
                                 <connections>
-                                    <action selector="prevButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mot-Wf-aPl"/>
+                                    <action selector="prevButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Ek-Fp-abi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZaP-UI-1k5" userLabel="playPauseButton">
@@ -50,7 +50,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="playPause"/>
                                 <connections>
-                                    <action selector="playPauseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uaF-IR-O7c"/>
+                                    <action selector="playPauseButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uQS-dM-T2e"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -69,18 +69,18 @@
                             <constraint firstItem="svq-iP-lcR" firstAttribute="top" secondItem="xXy-ed-ogM" secondAttribute="bottom" constant="93" id="s5z-wW-30X"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="NTW-ph-CUK"/>
                     <connections>
-                        <outlet property="imageView" destination="Ait-UU-qr7" id="ckZ-LI-Tpu"/>
-                        <outlet property="nextButton" destination="xXy-ed-ogM" id="17V-rR-d4Z"/>
-                        <outlet property="playPauseButton" destination="ZaP-UI-1k5" id="D7C-UZ-luj"/>
-                        <outlet property="prevButton" destination="svq-iP-lcR" id="HE7-aS-PGe"/>
+                        <outlet property="imageView" destination="Ait-UU-qr7" id="URz-2j-Ymx"/>
+                        <outlet property="nextButton" destination="xXy-ed-ogM" id="ag6-FO-T4w"/>
+                        <outlet property="playPauseButton" destination="ZaP-UI-1k5" id="46Q-2H-iCF"/>
+                        <outlet property="prevButton" destination="svq-iP-lcR" id="hHe-ly-Ec1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="IWS-LU-vwB">
                     <connections>
-                        <action selector="imageTapped:" destination="BYZ-38-t0r" id="1Ap-HL-hAA"/>
-                        <segue destination="mJw-0K-zcT" kind="show" identifier="ToSecondViewController" id="BFx-c5-kKq"/>
+                        <segue destination="mJw-0K-zcT" kind="show" identifier="toSecondViewController" id="GDR-v4-2ae"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -96,32 +96,34 @@
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I6r-uI-L5F">
                                 <rect key="frame" x="0.0" y="175" width="393" height="227"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="227" id="5qi-Hr-u9M"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3r6-aT-KdY" userLabel="backButton">
-                                <rect key="frame" x="166" y="661" width="61" height="35"/>
+                                <rect key="frame" x="166" y="695" width="61" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="back"/>
                                 <connections>
-                                    <action selector="backButtonTapped:" destination="mJw-0K-zcT" eventType="touchUpInside" id="HPx-oC-nLK"/>
+                                    <action selector="backButtonTapped:" destination="mJw-0K-zcT" eventType="touchUpInside" id="M9T-E1-k7L"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pGY-HY-uEe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="3r6-aT-KdY" firstAttribute="centerX" secondItem="I6r-uI-L5F" secondAttribute="centerX" id="6LH-5T-O45"/>
+                            <constraint firstItem="pGY-HY-uEe" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3r6-aT-KdY" secondAttribute="trailing" id="45M-Hg-nmq"/>
+                            <constraint firstItem="pGY-HY-uEe" firstAttribute="bottom" secondItem="3r6-aT-KdY" secondAttribute="bottom" constant="53" id="8LE-e0-hsY"/>
+                            <constraint firstItem="3r6-aT-KdY" firstAttribute="leading" secondItem="pGY-HY-uEe" secondAttribute="leading" constant="166" id="DSR-ez-JfQ"/>
                             <constraint firstItem="I6r-uI-L5F" firstAttribute="leading" secondItem="pGY-HY-uEe" secondAttribute="leading" id="KVj-9w-JcU"/>
-                            <constraint firstItem="pGY-HY-uEe" firstAttribute="bottom" secondItem="3r6-aT-KdY" secondAttribute="bottom" constant="87" id="Ld4-1T-Ukj"/>
+                            <constraint firstItem="I6r-uI-L5F" firstAttribute="centerX" secondItem="7U9-Za-zTV" secondAttribute="centerX" id="pNj-BN-TRl"/>
                             <constraint firstItem="I6r-uI-L5F" firstAttribute="top" secondItem="pGY-HY-uEe" secondAttribute="top" constant="116" id="xde-xu-Lt4"/>
-                            <constraint firstItem="3r6-aT-KdY" firstAttribute="centerX" secondItem="7U9-Za-zTV" secondAttribute="centerX" id="xvq-HO-Kth"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JVC-QS-qEl"/>
                     <connections>
-                        <outlet property="imageView" destination="I6r-uI-L5F" id="teI-85-gEd"/>
+                        <outlet property="imageView" destination="I6r-uI-L5F" id="06U-P6-pc6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PyT-pQ-hcq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
