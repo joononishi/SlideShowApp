@@ -1,5 +1,4 @@
 import UIKit
-
 class FirstViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
@@ -18,17 +17,14 @@ class FirstViewController: UIViewController {
         imageView.addGestureRecognizer(tapGesture)
         imageView.isUserInteractionEnabled = true
     }
-
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         currentImageIndex = (currentImageIndex + 1) % images.count
         updateImage()
     }
-
     @IBAction func prevButtonTapped(_ sender: UIButton) {
         currentImageIndex = (currentImageIndex - 1 + images.count) % images.count
         updateImage()
     }
-
     @IBAction func playPauseButtonTapped(_ sender: UIButton) {
         if timer == nil {
             nextButton.isEnabled = false
@@ -39,12 +35,10 @@ class FirstViewController: UIViewController {
             stopSlideShow()
         }
     }
-
     @objc func autoSlideShow() {
         currentImageIndex = (currentImageIndex + 1) % images.count
         updateImage()
     }
-
     func stopSlideShow() {
         timer?.invalidate()
         timer = nil
@@ -52,22 +46,23 @@ class FirstViewController: UIViewController {
         prevButton.isEnabled = true
         playPauseButton.setTitle("再生", for: .normal)
     }
-
     func updateImage() {
         if let image = UIImage(named: images[currentImageIndex]) {
             imageView.image = image
         }
     }
-
     @objc func imageTapped() {
+        // スライドショーが再生中なら停止する
+               if timer != nil {
+                   stopSlideShow()
+                   //if timer != nil のチェックは timer が nil でない場合だけ stopSlideShow() を呼び出すようにしているため、安全。
+               }
         performSegue(withIdentifier: "toSecondViewController", sender: nil)
     }
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let secondVC = segue.destination as? SecondViewController {
             secondVC.imageName = images[currentImageIndex]
         }
     }
 }
-
 

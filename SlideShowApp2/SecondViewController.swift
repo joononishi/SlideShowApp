@@ -1,5 +1,4 @@
 import UIKit
-
 class SecondViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
@@ -11,7 +10,6 @@ class SecondViewController: UIViewController {
             imageView.image = image
         }
     }
-
     @IBAction func backButtonTapped(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
